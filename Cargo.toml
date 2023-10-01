@@ -1,0 +1,16 @@
+[package]
+name = "fast_ply"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+byteorder = "1.4.3"
+fast_ply_derive = { path = "derive", optional = true }
+ply-rs = "0.1.3"
+cgmath = { version = "0.18", optional = true }
+
+[features]
+derive = ["fast_ply_derive"]
+cgmath = ["dep:cgmath"]
