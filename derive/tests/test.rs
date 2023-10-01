@@ -1,4 +1,4 @@
-use std::{io::BufReader, path::Path};
+use std::io::BufReader;
 
 use byteorder::LittleEndian;
 use fast_ply::PlyElement;
@@ -27,9 +27,9 @@ struct Vertex {
     rot: [f32; 4],
 }
 
-fn main() {
-    let path = Path::new("point_cloud_30000.ply");
-    let f = std::fs::File::open(path).unwrap();
+#[test]
+fn test_derive() {
+    let f = std::fs::File::open("point_cloud_30000.ply").unwrap();
     let mut reader = BufReader::new(f);
 
     let p = ply_rs::parser::Parser::<ply_rs::ply::DefaultElement>::new();
